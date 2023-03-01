@@ -1,0 +1,10 @@
+@EndUserText.label: 'Uçuşlar Erişim Kontrolü (CDS Rolü)'
+@MappingRole: true
+define role ZI_FLIGHTDETAILS {
+    grant select on ZI_Flight
+    where ( CarrierId ) = aspect pfcg_auth( Z_DMO_CAR,
+                                            carrier_id,
+                                            actvt = '03' )
+      and ConnectionId like '04%';
+                        
+}
