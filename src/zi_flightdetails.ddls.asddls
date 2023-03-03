@@ -3,9 +3,11 @@
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Flight Detail'
+@Metadata.allowExtensions: true
+@OData.publish: true
 define view ZI_FlightDetails
   with parameters
-    P_TargetCurrency :abap.cuky( 5 )
+    P_TargetCurr : waers
   as select from ZI_Flight
   association [1] to /DMO/I_Carrier    as _Carrier    on  $projection.CarrierId = _Carrier.AirlineID
   association [1] to /DMO/I_Connection as _Connection on  $projection.ConnectionId = _Connection.ConnectionID
@@ -34,16 +36,20 @@ define view ZI_FlightDetails
       amount => Price,
       source_currency => CurrencyCode,
       round => 'X',
-      target_currency => :P_TargetCurrency,
+      target_currency => :P_TargetCurr,
       exchange_rate_date => FlightDate
       )                        as PriceInTargetCurrency,
 
       @Semantics.currencyCode: true
-      cast(:P_TargetCurrency
+      cast(:P_TargetCurr
       as vdm_v_target_currency
       preserving type)         as TargetCurrency,
       _Carrier,
-      _Connection
+      _Connection,
+      @ObjectModel.virtualElement: true
+      @ObjectModel.virtualElementCalculatedBy:
+      'ABAP:ZCL_FLIGHTDETAIL_CALC_EXIT'
+      cast ( '' as langt )   as FlightDateWeekday
 }
-where
-  FlightDate >= $session.system_date
+//where
+//  FlightDate >= $session.system_date

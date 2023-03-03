@@ -3,17 +3,16 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>ZHVL_RAP_OV_OF_ALL_ANNOTATIONS</NAME>
-    <SUBC>1</SUBC>
+    <NAME>ZHVL_UI5_ONBELLEK_TEMIZLE_M01</NAME>
+    <SUBC>I</SUBC>
     <RLOAD>T</RLOAD>
-    <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>Overview of All Annotations</ENTRY>
-     <LENGTH>27</LENGTH>
+     <ENTRY>Include ZHVL_UI5_ONBELLEK_TEMIZLE_M01</ENTRY>
+     <LENGTH>37</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

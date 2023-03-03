@@ -1,8 +1,9 @@
 *&---------------------------------------------------------------------*
-*& Report ZHVL_RAP_OV_OF_ALL_ANNOTATIONS
+*& Report zhvl_rap_annots_4_metadata_enh
 *&---------------------------------------------------------------------*
 *&
 *&---------------------------------------------------------------------*
-REPORT zhvl_rap_ov_of_all_annotations.
+REPORT zhvl_rap_annos_4_metadata_enhs.
 
-SUBMIT abap_docu_cds_annos_overview.
+"Bu program, meta data enhancement'larda kullanılabilecek tüm annotationları listeler.
+SUBMIT abap_docu_mde_annos .

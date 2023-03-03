@@ -1,0 +1,7 @@
+@Metadata.layer: #CORE
+@EndUserText.label: 'Mevcut uçuşların detayları'
+annotate view ZI_FlightDetails with
+{
+  @EndUserText.label: 'Flight fully booked'
+  FlightOccupied;
+}
